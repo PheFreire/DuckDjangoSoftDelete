@@ -1,0 +1,81 @@
+[project]
+name = "duck_django_soft_delete"
+version = "0.1.2"
+description = "A Django framework that provides soft delete functionality with automatic query filtering, admin integration, and safe relation prefetching for models using a deleted_at timestamp."
+authors = [ { name = "Pato", email = "pheprogrammer@gmail.com" } ]
+readme = "README.md"
+license = "MIT"
+
+[project.urls]
+homepage = "https://pypi.org/project/duck_django_soft_delete/"
+repository = "https://github.com/PheFreire/DuckDjangoSoftDelete"
+
+[tool.poetry]
+packages = [{include = "duck_django_soft_delete", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+django = "^5.2.6"
+djangorestframework = ">=3.16.0,<4.0.0"
+pydantic = "^2.11.5"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.2.0"
+bandit = "^1.8.3"
+mypy = "^1.15.0"
+pytest = "^8.3.5"
+pytest-django = "^4.11.1"
+freezegun = "^1.5.5"
+psycopg2-binary = "^2.9.10"
+pytest-cov = "^5.0.0"
+pytest-xdist = "^3.6.1"
+testcontainers = { version = "^4.13.0", extras = ["postgresql"], markers = "python_version < '4.0'" }
+
+[tool.poetry.extras]
+tests = [
+  "pytest",
+  "pytest-django",
+  "freezegun",
+  "psycopg2-binary",
+  "pytest-cov",
+  "pytest-xdist",
+  "testcontainers"
+]
+
+[tool.pyright]
+typeCheckingMode = "basic"
+extraPaths = ["src"]
+reportMissingTypeStubs = false
+reportMissingImports = true
+
+[tool.mypy]
+mypy_path = "src"
+exclude = "tests"
+explicit_package_bases = true
+
+[tool.flake8]
+per-file-ignores = "__init__.py:F401"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 79
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
+log_cli = true
+python_files = "test_*.py"
+addopts = [
+  "--create-db",
+  "--ds=tests.settings",
+  "-s",
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
