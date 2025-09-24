@@ -1,10 +1,8 @@
-from abc import abstractmethod
 from typing import TYPE_CHECKING, Type
 
 from django.db import models
 from django.db.models.query import Prefetch
 from django.utils import timezone
-from pydantic import BaseModel
 
 from duck_django_soft_delete.queryset.non_soft_deleted_query_set import (
     NonSoftDeletedQuerySet,
@@ -49,17 +47,6 @@ class SoftDeleteTable(models.Model):
 
         self.deleted_at = None
         self.save(update_fields=["deleted_at"])
-
-    @abstractmethod
-    def as_dto(
-        self, include_fks: bool = False, show_deleted: bool = False
-    ) -> BaseModel:
-        """
-        Serialize Django database model into Pydantic BaseModel
-        """
-        raise NotImplementedError(
-            "Subclasses must implement `as_dto` returning a BaseModel"
-        )
 
     @classmethod
     def build_prefetches(cls: Type["SoftDeleteTable"], relations: list[str]):

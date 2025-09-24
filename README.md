@@ -62,7 +62,6 @@ class MyModel(SoftDeleteTable):
 - Soft delete model field: `deleted_at`
 - Django, soft delete and restore model methods: `soft_delete()` / `restore()`
 - Django prefetch_related method for soft delete `build_prefetches(relations: list[str]) -> list[Prefetch|str]`
-- Load django model as BaseModel Dto: `as_dto(include_fks: bool = False, show_deleted: bool = False) -> BaseModel` (abstract method — implement in your model)
 
 ### Managers
 
