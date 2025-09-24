@@ -1,6 +1,6 @@
 [project]
 name = "duck_django_soft_delete"
-version = "0.1.2"
+version = "0.1.3"
 description = "A Django framework that provides soft delete functionality with automatic query filtering, admin integration, and safe relation prefetching for models using a deleted_at timestamp."
 authors = [ { name = "Pato", email = "pheprogrammer@gmail.com" } ]
 readme = "README.md"

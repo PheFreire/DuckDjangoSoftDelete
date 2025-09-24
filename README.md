@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="DuckDI Logo" width="150" />
+  <img src="https://github.com/PheFreire/DuckDjangoSoftDelete/blob/main/assets/logo.png" alt="DuckDI Logo" width="150" />
 </p>
 
 # duck-django-soft-delete
