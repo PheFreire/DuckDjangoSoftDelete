@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="DuckDI Logo" width="150" />
+</p>
+
 # duck-django-soft-delete
 
 Pragmatic **soft delete framework for Django**.  
