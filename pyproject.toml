@@ -1,6 +1,6 @@
 [project]
 name = "duck_django_soft_delete"
-version = "0.1.4"
+version = "0.1.5"
 description = "A Django framework that provides soft delete functionality with automatic query filtering, admin integration, and safe relation prefetching for models using a deleted_at timestamp."
 authors = [ { name = "Pato", email = "pheprogrammer@gmail.com" } ]
 readme = "README.md"
@@ -31,6 +31,7 @@ psycopg2-binary = "^2.9.10"
 pytest-cov = "^5.0.0"
 pytest-xdist = "^3.6.1"
 testcontainers = { version = "^4.13.0", extras = ["postgresql"], markers = "python_version < '4.0'" }
+django-stubs = "^5.2.0"
 
 [tool.poetry.extras]
 tests = [

@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Type
+from typing import Type
 
 from django.db import models
 from django.db.models.query import Prefetch
@@ -7,9 +7,6 @@ from django.utils import timezone
 from duck_django_soft_delete.queryset.non_soft_deleted_query_set import (
     NonSoftDeletedQuerySet,
 )
-
-if TYPE_CHECKING:
-    from django.db.models.options import Options
 
 class SoftDeleteTable(models.Model):
     """
@@ -22,9 +19,6 @@ class SoftDeleteTable(models.Model):
         - `objects`: filters out soft-deleted records by default.
         - `everything`: returns all records, including soft-deleted ones.
     """
-
-    if TYPE_CHECKING:
-        _meta: "Options"
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
